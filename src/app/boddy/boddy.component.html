@@ -1,0 +1,62 @@
+<section class="container">
+    <ul class="products">
+      <li class="row" *ngFor="let item of product">
+        <div class="col left">
+          <div class="thumbnail">
+            <a href="#">
+              <img src={{item.img}} alt="" />
+            </a>
+          </div>
+          <div class="detail">
+            <div class="name"><a href="#">{{item.model}} </a></div>
+            <div class="description">
+              {{item.descript}}
+            </div>
+            <div class="price">{{item.price | currency:"VND": "symbol":"1.0-2":"VI"}}</div>
+          </div>
+        </div>
+
+        <div class="col right">
+          <div class="quantity">
+            <!-- Bấm phím bất kỳ ở ô text gọi thủ tục bên file C:\shopcar\src\app\boddy\boddy.component.ts-->
+            <!-- <input type="number" class="quantity" step="1" value={{item.quantity}} (keydown)="onKeydown($event)"/> -->
+
+            <!-- Bấm phím enter và gọi thử tục này bên file C:\shopcar\src\app\boddy\boddy.component.ts-->
+            <!-- <input type="number" class="quantity" step="1" value={{item.quantity}} (keydown.enter)="onKeydown($event)"/> -->
+
+            <!-- Gọi thử tục cùng cấp để từ đó gọi ra component chính
+            <input #theInput type="number" class="quantity" step="1" value={{item.quantity}} (input)="changQuantity(theInput)"/> -->
+
+            <!-- Gọi thử tục cùng cấp để từ đó gọi ra component chính, dùng input cũng đc hoặc keyup cũng đc -->
+            <!-- Thủ tục changQuantity nằm trong file ts -->
+            <!-- <input #theInput type="number" class="quantity" step="1" value={{item.quantity}} (keyup)="changQuantity(theInput)"/> -->
+
+            <!-- Thêm mã sản phẩm khi truyền vào -->
+            <input #theInput type="number" class="quantity" step="1" value={{item.quantity}} (input)="changQuantity(theInput, item.id)"/>
+
+          </div>
+
+          <div class="remove">
+            <svg
+              version="1.1"
+              class="close"
+              xmlns="//www.w3.org/2000/svg"
+              xmlns:xlink="//www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 60 60"
+              enable-background="new 0 0 60 60"
+              xml:space="preserve"
+              (click)="remuvePrd(item.id, item.model)"
+            >
+              <polygon
+                points="38.936,23.561 36.814,21.439 30.562,27.691 24.311,21.439 22.189,23.561 28.441,29.812 22.189,36.064 24.311,38.186 30.562,31.934 36.814,38.186 38.936,36.064 32.684,29.812"
+              ></polygon>
+            </svg>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+

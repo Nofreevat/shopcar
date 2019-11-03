@@ -1,0 +1,27 @@
+<main>
+
+    <!-- Gọi phần header không có tham số truyền vào từ cha-->
+    <!-- <app-header></app-header> -->
+
+    <!-- Gọi phần header có truyền tham số truyền vào từ cha-->
+
+    <!-- Tham số totalItems đã được khai báo trong C:\shopcar\src\app\app.component.ts -->
+    <!-- Đây là biến được khai báo -->
+    <!-- <app-header [totalItems]="totalItems1"></app-header> -->
+
+    <!-- Tham số totalItems đã được khai báo trong C:\shopcar\src\app\app.component.ts -->
+    <app-header [totalItems]="getTotalItem()"></app-header>
+
+
+    <!-- Gọi phần body không có thuộc tính chuyển cho componetn con
+    <app-boddy></app-boddy> -->
+
+    <!-- Gọi có tham số từ cha vào con -->
+    <!-- <app-boddy [product]="prd"></app-boddy> -->
+
+    <!-- Gọi có tham số thuộc tính truyền cho ông component con -->
+    <app-boddy [product]="products" (onRemoveProduct)="removeProduct($event)" (suKienThayDoi)="suKienThayDoi($event)"></app-boddy>
+
+    <!-- Gọi phần footer -->
+    <app-footer [tongSoTien]="getTinh_Tong_So_Tien()"> </app-footer>
+  </main>
